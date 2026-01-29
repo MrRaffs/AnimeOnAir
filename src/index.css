@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-bg-primary: #131314;
+  --color-btn-primary: #2563eb;
+  --color-text-primary: #f3f4f6;
+  --color-text-secondary: #9ca3af;
+  --color-secondary: #2c3541;
+
+  --font-inter: "Inter", sans-serif;
+  --text-1xs: 0.625rem;
+}
