@@ -34,3 +34,8 @@ export function getDay() {
   const dayStr = dayName[dayNum];
   return dayStr.toLowerCase();
 }
+
+export function getYear() {
+  const date = new Date();
+  return date.getFullYear();
+}
