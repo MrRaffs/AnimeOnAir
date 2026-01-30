@@ -25,8 +25,7 @@ function Day({ day, date, month, handleClick, selected }) {
   return (
     <button
       className={`hover:bg-secondary hover:cursor-pointer font-semibold px-2 rounded
-        bg-${selected === day.toLowerCase() ? "btn-primary" : "bg-primary"}
-        text-${selected === day.toLowerCase() ? "secondary" : "primary"}`}
+        ${selected === day.toLowerCase() ? "bg-btn-primary text-secondary" : "bg-bg-primary text-primary"}`}
       onClick={() => handleClick(day.toLowerCase())}
     >
       {console.log(selected, day.toLowerCase())}
