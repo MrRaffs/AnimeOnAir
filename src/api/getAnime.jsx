@@ -4,21 +4,32 @@ import axios from "axios";
 export default function useAnimeSchedule(day) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
-  const [pagination, setPagination] = useState({});
+  // const [pagination, setPagination] = useState();
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchAllData() {
       try {
-        let res = await axios.get(
-          `https://api.jikan.moe/v4/schedules?filter=${day}`,
-          {
-            headers: {
-              Accept: "application/json",
-            },
-          },
-        );
+        let allData = [];
+        let currentPage = 1;
+        let hasNextPage = true;
 
-        let rawData = res.data.data;
+        while (hasNextPage) {
+          let res = await axios.get(
+            `https://api.jikan.moe/v4/schedules?filter=${day}&page=${currentPage}`,
+            {
+              headers: {
+                Accept: "application/json",
+              },
+            },
+          );
+
+          allData = [...allData, ...res.data.data];
+
+          hasNextPage = res.data.pagination.has_next_page;
+          currentPage++;
+        }
+        let rawData = allData;
+
         // Source - https://stackoverflow.com/a
         // Posted by leonheess, modified by community. See post 'Timeline' for change history
         // Retrieved 2026-01-29, License - CC BY-SA 4.0
@@ -32,15 +43,15 @@ export default function useAnimeSchedule(day) {
         });
 
         setData(sorted);
-        setPagination(res.data.pagination);
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
         setError(true);
       }
     }
-    fetchData();
+
+    fetchAllData();
   }, [day]);
 
   //   data.filter();
-  return { data, error, pagination };
+  return { data, error };
 }

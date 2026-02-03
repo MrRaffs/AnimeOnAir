@@ -23,13 +23,16 @@ export default function Home() {
       </header>
       <main className="max-w-screen">
         <section className=" xs:px-4 md:px-15">
-          <h2 className="px-4 lg:px-6 pb-4 font-bold text-xl">
+          <h2 className="px-4 xl:mx-20 pb-4 font-bold text-xl">
             Airing {getYear()}
           </h2>
           <div className="day-selector-container  flex justify-center-safe mb-4">
             <Schedule handleClick={handleClickDay} selected={day} />
           </div>
-          <div className="card-container w-full flex flex-col overflow-y-clip justify-center bg-bg-primary mb-6">
+          <div
+            className="card-container w-full flex flex-col items-center-safe overflow-y-clip justify-center bg-bg-primary 
+          mb-6 pb-6"
+          >
             <AnimeCards handleClick={handleClickCard} day={day} />
           </div>
         </section>

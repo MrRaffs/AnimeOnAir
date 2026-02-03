@@ -28,8 +28,6 @@ function Day({ day, date, month, handleClick, selected }) {
         ${selected === day.toLowerCase() ? "bg-btn-primary text-secondary" : "bg-bg-primary text-primary"}`}
       onClick={() => handleClick(day.toLowerCase())}
     >
-      {console.log(selected, day.toLowerCase())}
-      {console.log(selected === day.toLowerCase())}
       <div className="flex flex-col text-center">
         <span className=" text-xl">{day.slice(0, 3)}</span>
         <span className=" text-1xs">{`${date} ${month}`}</span>

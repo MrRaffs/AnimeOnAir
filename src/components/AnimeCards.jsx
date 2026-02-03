@@ -4,7 +4,11 @@ export default function AnimeCards({ handleClick, day }) {
   const { data, error } = useAnimeSchedule(day);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 justify-items-center-safe gap-y-4 overflow-clip">
+    <div
+      className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 
+    justify-items-center-safe gap-y-4 overflow-clip
+    xl:w-8/10"
+    >
       {error ? (
         <span>Failed to fetch</span>
       ) : (
@@ -28,14 +32,17 @@ function Card({ id, image, title, handleClick }) {
     <div
       onClick={() => handleClick(id)}
       className="
-    flex flex-col bg-bg-primary p-2 rounded-lg max-h-56 w-40 overflow-clip text-ellipsis
+    flex flex-col bg-bg-primary p-2 rounded-lg h-70 w-45 overflow-clip text-ellipsis
     hover:scale-105 hover:cursor-pointer
     transition-transform duration-75 ease-in
     
     "
     >
-      <img src={image} className="rounded-lg h-9/10" />
-      <p className="text-xs max-w-max">{title}</p>
+      <img src={image} className="rounded-lg  h-[85%] object-cover" />
+
+      <div className="title-container h-[15%]">
+        <p className="text-xs font-semibold max-w-max line-clamp-2">{title}</p>
+      </div>
     </div>
   );
 }
