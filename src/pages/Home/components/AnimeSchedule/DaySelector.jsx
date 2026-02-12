@@ -1,0 +1,39 @@
+import { getWeek } from "../../../../utils/DateUtils";
+
+export default function DaySelector({ handleClick, selected }) {
+  let days = getWeek();
+  console.log("selecetd", selected);
+  // console.log(days);
+  return (
+    <div className="day-selector-container  flex justify-center-safe mb-4">
+      <div className="flex flex-row justify-evenly min-w-sm w-4xl">
+        {days.map((day) => (
+          <Day
+            key={day.date}
+            day={day.day}
+            date={day.date}
+            month={day.month}
+            handleClick={handleClick}
+            selected={selected}
+            //
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Day({ day, date, month, handleClick, selected }) {
+  return (
+    <button
+      className={`hover:cursor-pointer font-semibold px-2 rounded
+        ${selected === day.toLowerCase() ? "bg-btn-primary text-secondary" : "bg-bg-primary text-primary hover:bg-secondary"}`}
+      onClick={() => handleClick(day.toLowerCase())}
+    >
+      <div className="flex flex-col text-center">
+        <span className=" text-xl">{day.slice(0, 3)}</span>
+        <span className=" text-1xs">{`${date} ${month}`}</span>
+      </div>
+    </button>
+  );
+}
