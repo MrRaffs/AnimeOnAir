@@ -1,10 +1,24 @@
 import Home from "./pages/Home/Home";
+import AnimeDetail from "./pages/AnimeDetail/AnimeDetail";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const myRoutes = [
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/anime",
+    element: <AnimeDetail />,
+  },
+];
 
 function App() {
   return (
-    <div className=" min-h-screen bg-bg-primary text-text-primary font-inter">
-      <Home />
-    </div>
+    <>
+      {/* <Home /> */}
+      <RouterProvider router={createBrowserRouter(myRoutes)} />
+    </>
   );
 }
 
