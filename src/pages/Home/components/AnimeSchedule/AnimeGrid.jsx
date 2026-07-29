@@ -15,7 +15,7 @@ export default function AnimeGrid({ handleClick, day }) {
     xl:w-8/10"
       >
         {error ? (
-          <span>Failed to fetch</span>
+          <span>Failed to fetch {console.log(error)}</span>
         ) : (
           data.map((anime) => (
             <Card

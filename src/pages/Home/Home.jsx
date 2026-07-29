@@ -4,7 +4,7 @@ import AnimeScheduleSection from "./components/AnimeSchedule";
 
 export default function Home() {
   return (
-    <div className=" min-h-screen bg-bg-primary text-text-primary font-inter">
+    <div className=" min-h-dvh bg-bg-primary text-text-primary font-inter">
       <Navbar />
 
       <main className="max-w-screen">

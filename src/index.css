@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  @apply bg-bg-primary;
+}
+
 @theme {
   --color-bg-primary: #131314;
   --color-btn-primary: #9ecddf;

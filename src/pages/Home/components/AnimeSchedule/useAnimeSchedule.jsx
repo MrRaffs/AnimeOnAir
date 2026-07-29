@@ -15,7 +15,7 @@ export default function useAnimeSchedule(day) {
 
         while (hasNextPage) {
           let res = await axios.get(
-            `https://api.jikan.moe/v4/schedules?filter=${day}&page=${currentPage}`,
+            `https://api.tenrai.org/v1/schedules?filter=${day}&page=${currentPage}&kids=${true}&sfw=${true}`,
             {
               headers: {
                 Accept: "application/json",
